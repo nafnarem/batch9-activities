@@ -1,0 +1,448 @@
+html,body{
+    margin: 0;
+    min-width: 350px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+@font-face {
+    font-family: mjolnir;
+    src: url("Assets/Mjolnir.woff");
+  }
+@font-face {
+    font-family: jotunheim;
+    src: url("Assets/Jotunheim\ Version\ 1.otf");
+}
+html {
+    scroll-behavior: smooth;
+}
+
+.Full-screen-video-container{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;   
+
+
+}
+.Full-screen-video-container video{
+    position: absolute;
+    z-index: -1;
+    width: auto;
+    height: auto;
+    min-width: 100%;
+    min-height: 100%;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+#navbar{
+    background-color: white;
+    width: 100%;
+    height: 70px;
+    position: fixed;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: black;
+    color: wheat;
+    z-index: 999;
+    text-decoration: none;
+    padding-bottom: 10px;
+    font-size: 20px;
+    font-family: mjolnir;
+}
+
+.nav-link{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+#form{
+    background-color: white;
+    display: flex;
+    margin-left: 50px;
+    text-align: center;
+}
+#header-img{
+    margin-top:15px;
+    width:150px;
+}
+
+
+@media (min-aspect-ratio: 16/9) {
+    .Full-screen-video-container video{
+        width:100%;
+        height: auto;
+    }
+}
+@media (max-aspect-ratio: 16/9) {
+    .Full-screen-video-container video{ 
+        width:auto;
+        height: 100%;
+    }
+}
+#about{
+    padding-top:80px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: auto;
+    column-gap: 20px;
+    grid-template-areas: "about about about"
+                            "a a a";
+   
+    justify-items: center;
+    align-content: center;
+    align-items: start;
+    padding-bottom: 20px;
+    row-gap: 30px;
+    text-align: center;
+    padding-right:30px;
+    padding-left:30px;
+    
+}
+#about img{
+    height: auto;
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+/* 
+#about h3{
+    font-family: jotunheim;
+    margin-top:-10px;
+    margin-bottom: -10px;
+    font-size: 50px;
+} */
+#about h1{
+    font-family: jotunheim;
+    color: rgb(122, 26, 26);
+    font-size: 90px;
+    margin-top: -15px;
+    margin-bottom: -15px;
+    animation: shake 2.5s linear forwards infinite;
+}
+.about{
+    grid-area: about;
+}
+.a{
+    grid-area:a;
+}
+#trailer{
+    background-color: black;
+
+    padding-top:8vh;
+}
+#navbar a, a:visited {
+    color: inherit;
+    text-decoration: none;
+}
+.iframe-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+}
+
+/* Then style the iframe to fit in the container div with full height and width */
+.responsive-iframe {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  width: 70%;
+  height: 70%;
+  margin: auto;
+}
+
+.container {
+    border: 2px solid #ccc;
+    background-color: #eee;
+    border-radius: 5px;
+    margin-left:20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    opacity: .8;
+    position: relative;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  
+  /* Clear floats after containers */
+  .container::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+  /* Float images inside the container to the left. Add a right margin, and style the image as a circle */
+  .container img {
+    float: left;
+    margin-right: 20px;
+    margin-left: 10px;
+    border-radius: 50%;
+    margin-top:10px;
+  }
+  
+  /* Increase the font-size of a span element */
+  .container span {
+    font-size: 30px;
+    margin-right: 15px;
+  }
+  .container p{
+      font-size: 20px;
+      padding: 10px;
+      margin-top: 20px;
+      margin-left: 10px;
+      margin-right: 10px;
+  }
+  .container a{
+      margin-left: 20px;
+  }
+  .container h4{
+      position: absolute;
+      right:10px;
+      bottom: 0px;
+
+    text-decoration: underline;
+  }
+  #reviews{
+    background-image: url(Assets/valheimmountain.png);
+    display:grid;
+    background-size: cover;
+    padding-top:8vh;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    column-gap: 10px;
+    row-gap: 10px;
+    padding-bottom:8vh;
+    background-position: center bottom;
+  }
+  
+.fab{
+    font-size:3em;
+    opacity: .9;
+}
+.fa-facebook{
+    color:white;
+    margin:2px;
+}
+.fa-reddit{
+    color:white;
+    margin:2px;
+}
+.fa-twitter{
+    color:white;
+    margin:2px;
+}
+.fa-discord{
+    color:white;
+    margin:2px;
+}
+.fa-steam{
+    color:white;
+    margin:2px;
+}
+.fa-youtube{
+    color:white;
+    margin:2px;
+}
+.icon-bar{
+    display: flex;
+    background-color:none;
+    align-items: center;
+    height: 50%;
+    justify-content: space-between;
+    flex-direction: column;
+    position:absolute;
+    right: 20px;
+    top:250px;
+    padding:5px;
+    
+}
+#form{
+    margin-top:80vh;  
+    width:20px;
+    margin-left:100px;
+    background: none;
+    color: white;
+    text-align: center;
+}
+.email-box{
+    height: 40px;
+    color: white;
+    display: flex;
+    justify-content: center;
+
+}
+.email-box i{
+    background:#2f3542;
+    width: 40px;
+    font-size: 40px;
+    line-height:40px;
+}
+.tbox,.btn{
+    border:none;
+    outline:none;
+}
+.tbox{
+    text-align: center;
+    width:0px;
+    transition: .6s;
+}
+.email-box:hover .tbox{
+    width:260px;
+}
+.btn{
+    background: #2f3542;
+    color: white;
+    padding: 0 10px;
+    text-transform: uppercase;
+    cursor:pointer;
+}
+#systemReq{
+    background-image: url(Assets/trader.jpeg);
+    background-size: cover;
+    display:flex;
+    justify-content: center;
+    align-items: flex-start;
+    font-size: 30px;
+    min-height: 800px;
+    height: auto;
+    justify-content: space-between;
+    padding-top:8vh;
+    padding:30px;
+    background-position: center;
+}
+.minimum,.recommended{
+    color: honeydew;
+    opacity: .7;
+    border-style: groove;
+    border-width: 15px;
+    background-color: black;
+    padding:20px;
+    
+    margin-right: auto;
+    margin-left:auto;
+
+}
+@media (max-width: 600px) {  
+    #reviews {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+}
+}
+@media (max-width: 1024px) {  
+    #systemReq {
+    flex-wrap: wrap;
+    height: 100%;
+}
+}
+@media (max-width: 858px) {  
+    #navbar {
+    flex-wrap: wrap;
+    height:100px;
+    }
+}
+@media (max-width: 500px) {  
+    #navbar {
+    flex-wrap: wrap;
+    height:150px;
+    }
+}
+
+@media (max-width: 600px) {  
+    #about{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+}
+}
+@media(max-width:500px){
+    .icon-bar{
+        display: flex;
+        background-color:none;
+        align-items: center;
+        height: 50%;
+        justify-content: space-between;
+        flex-direction: row;
+        position:absolute;
+        right: 10px;
+        top:250px;
+    }
+}
+.nav-link:hover {
+transform: scale(1.5);
+}
+
+.fab:hover{
+    transform: scale(1.5);
+}
+.fa-facebook:hover {
+    color:#4267B2;
+}
+.fa-twitter:hover{
+    color:#1DA1F2;
+}
+.fa-reddit:hover{
+    color: tomato;
+}
+.fa-steam:hover{
+    color:grey;
+}
+.fa-youtube:hover{
+    color:#FF0000;
+}
+.fa-discord:hover{
+    color:#7289DA;
+}
+    
+#about h3 {
+    text-align: center; 
+    font-family: jotunheim;
+    margin-top:-10px;
+    margin-bottom: -10px;
+    font-size: 50px;
+    letter-spacing: 5px;
+    animation: colorRotate 6s linear 0s infinite;
+  }
+  
+  @keyframes colorRotate {
+    from {
+      color: #6666ff;
+    }
+    10% {
+      color: #0099ff;
+    }
+    50% {
+      color: #00ff00;
+    }
+    75% {
+      color: #ff3399;
+    }
+    100% {
+      color: #6666ff;
+    }
+  }
+
+  @keyframes shake {
+    5%, 15%, 25%, 35%, 55%, 65%, 75%, 95% {
+        transform: translateY(0.018em) rotate(0deg);
+    }
+
+    10%, 30%, 40%, 50%, 70%, 80%, 90% {
+        transform: translateY(-0.018em) rotate(0deg);
+    }
+
+    20%, 60% {
+        transform: translate(-0.018em, 0.018em) rotate(0deg);
+    }
+
+    45%, 85% {
+        transform: translate(0.018em, -0.018em) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(0) rotate(-0.5deg);
+    }
+}
