@@ -1,5 +1,6 @@
-function sendText( ) {
+function sendText(firstName = 'John', lastName = 'Parreno' ) {
     //Write your code here.
+    console.log('Hello '+firstName+' '+ lastName+ '! Please be informed that school is canceled');
 }
 sendText()
 
