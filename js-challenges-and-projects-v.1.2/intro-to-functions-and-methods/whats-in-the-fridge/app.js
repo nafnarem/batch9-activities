@@ -7,11 +7,7 @@ const buyList = ['chicharon', 'buko pie', 'mango', 'bacon' ]
 const fridge = []
 
 //Challenge: Please fill the fridge array with 5 items of your choice. 
-fridge.push('iceCream');
-fridge.push('cake');
-fridge.push('milk');
-fridge.push('pizza');
-fridge.push('spaghetti');
+fridge.push('iceCream','cake','milk','pizza','spaghetti');
 
 //Challenge 2: You have bought some chicharon.
 //Please remove it from the buyList and add it to the items in fridge.
