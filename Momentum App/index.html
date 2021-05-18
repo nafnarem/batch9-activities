@@ -8,40 +8,105 @@
     <link rel="stylesheet" type="text/css" href="styles.css" />
 </head>
 <body>
-    <main class="main-container">
-      <section class="left-container">
+    <main>
+      <div class="header">
         <!-- Clock -->
+        <div class="js-greetings greetings">Hello there, <span class="name" data-name> John</span><span>! It's time to plug in.</span>
+          <button data-modal-target="#modal">Change Name</button></div>
+        
         <div class="clock">
+          <h2>Monday, May 16 2021</h2>
           <h1>00:00:00</h1>
         </div>
-        <!-- User Name -->
-        <form class="js-form form">
-          <input type="text" placeholder="What is your name" />
-        </form>
-        <h3 class="js-greetings greetings"></h3>
-      </section>
-      <!-- To Do List -->
-      <section class="right-container">
-        <div class="toDoContainer">
-          <div class="toDoTitle">To Do</div>
-          <ul class="js-toDoList"></ul>
-        </div>
-        <form class="js-toDoForm">
-          <input type="text" placeholder="Write a to do" />
-        </form>
-      </section>
-    </main> 
-    <!-- Weather -->
-    <div class="js-weather">
-      <div class="weather-main"></div>
-      <div class="weather-temp"></div>
-      <div class="weather-location"></div>
+      </div>
+      </div>
+        
+  <div class="modal" id="modal">
+    <div class="modal-header">
+      <div class="title">Who are you?</div>
+      <form class="js-form form" data-user-form>
+        <input type="text" class="user" placeholder="What is your name" data-user-input />
+      </form>
+      <button data-close-button class="close-button">&times;</button>
     </div>
+    <div class="modal-body">
+    </div>
+  </div>
+  <div id="overlay"></div>
+      <!-- To Do List -->
+    <div class="focus"></div>
+    <h1 class="h1focus">Note down your main focus today.</h1>
+    <form action="">
+    <input data-focus-input type="text" placeholder="write it down here">
+  </form>
+    <div class="all-tasks">
+      <h2 class="task-list-title">My lists</h2>
+      <ul class="task-list" data-lists></ul>
+
+      <form action="" data-new-list-form>
+        <input 
+          type="text"
+          class="new list"
+          data-new-list-input
+          placeholder="new list name"
+          aria-label="new list name"
+        />
+        <button class="btn create" aria-label="create new list">+</button>
+      </form>
+    </div>
+
+    <div class="todo-list" data-list-display-container>
+      <div class="todo-header">
+        <h2 class="list-title" data-list-title>YouTube</h2>
+        <p class="task-count" data-list-count>3 tasks remaining</p>
+      </div>
+
+      <div class="todo-body">
+        <div class="tasks" data-tasks></div>
+
+        <div class="new-task-creator">
+            <form action="" data-new-task-form>
+                <input 
+                  type="text"
+                  data-new-task-input
+                  class="new task"
+                  placeholder="new task name"
+                  aria-label="new task name"
+                />
+                <button class="btn create" aria-label="create new task">+</button>
+              </form>
+        </div>
+
+        <div class="delete-stuff">
+          <button class="btn delete" data-clear-complete-tasks-button>Clear completed tasks</button>
+          <button class="btn delete" data-delete-list-button>Delete list</button>
+        </div>
+      </div>
+    </div>
+
+   
+    </div>
+    <template id="task-template">
+      <div class="task">
+        <input type="checkbox" />
+        <label>
+          <span class="custom-checkbox"></span>
+        </label>
+      </div>
+    </template>
+        <!-- quotes -->
+        <h1>Quote Generator</h1>
+        <div id="container">
+        <button id="quoteButton">Press for a new Quote!</button>
+        <div id="output">Press the button to generate a Quote</div>
+        </div>
+        <input type="text" class="quote" placeholder="Add a new quote" data-user-quote />
+        <button id= "quoteSubmit">Add quote</button>
+    </main> 
     <!-- Script -->
+    <!-- <script>window.localStorage.clear();</script> -->
+    <script src="clock.js"></script>
+    <script src="to-do.js"></script>
     <script src="app.js"></script>
-    <script src="greeting.js"></script>
-    <script src="todo.js"></script>
-    <script src="background.js"></script>
-    <script src="weather.js"></script>
   </body>
 </html>
