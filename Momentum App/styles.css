@@ -1,26 +1,28 @@
 body {
     color:black;
+    text-align: center;
 }
 main{
-  background-image:url(/bg.jpg);
+  background-image:url(/bg.png);
   position: absolute;
-  top:0;
-  left:0;
-  right:0;
-  bottom:0;
-  background-position: 50% 50%;
-  filter:contrast(200%)
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: transparent;
+  background-size: cover;
 }
 .header{
+  grid-area:header;
   display:flex;
-  flex-direction:row;
+  flex-direction: row;
   justify-content: center;
-  justify-content: space-around;
-  text-align: center;
+  justify-content: space-between;
   align-items: center;
 }
 .list-name{
     color:green;
+    list-style-type: none;
 }
 
 .active-list{
@@ -39,10 +41,6 @@ main{
     width: 100%;
     height: auto;
 }
-.greeting{
-    display: flex;
-    flex-direction: row;
-}
   
   .modal {
     position: fixed;
@@ -59,15 +57,14 @@ main{
   }
   
   .modal.active {
-    transform: translate(-50%, -50%) scale(1);
+    transform: translate(-50%, -50%) scale(2);
   }
   
   .modal-header {
-    padding: 10px 15px;
-    display: flex;
+    display:flex;
+    flex-direction: row;
     justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid black;
+    margin:15px;
   }
   
   .modal-header .title {
@@ -104,10 +101,52 @@ main{
     opacity: 1;
     pointer-events: all;
   }
-  
-  .todo-body{
-    background-color: rgb(117, 40, 40);
-    width:auto;
-    opacity: .7;
-    
-  }
+
+  .grid{
+    display:grid;
+    grid-template-areas:
+    'header header header header header header header'
+    'header header header header header header header'
+    'list task . . . . time'
+    'list task focus . . . time'
+    'quote . focus . . . . '
+    'footer footer footer . . . .';
+    grid-gap: 10px;
+    padding: 10px;
+    text-align: center;
+}
+
+.footer{
+  grid-area: footer;
+}
+.all-tasks{
+  grid-area: list;
+}
+.focusContainer{
+  grid-area: focus;
+}
+.quote-container{
+  grid-area: quote;
+  display:flex;
+  flex-direction: column;
+}
+.todo-list{
+  grid-area: task;
+}
+.greetings{
+  grid-area:greeting;
+  font-size:40px;
+  color:black;
+}
+.hide{
+  visibility:hidden;
+}
+.clock{
+  grid-area: time;
+}
+.reveal{
+  visibility:visible;
+}
+.user{
+  text-align: center;
+}

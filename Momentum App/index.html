@@ -8,24 +8,28 @@
     <link rel="stylesheet" type="text/css" href="styles.css" />
 </head>
 <body>
-    <main>
+    <main class="grid">
       <div class="header">
         <!-- Clock -->
-        <div class="js-greetings greetings">Hello there, <span class="name" data-name> John</span><span>! It's time to plug in.</span>
-          <button data-modal-target="#modal">Change Name</button></div>
+
+      <div class="js-greetings greetings"><span data-ampm>Hello there </span>, <span class="name" data-name> John</span><span>! It's time to plug in.</span>
+        <button data-modal-target="#modal">...</button>
+      </div>
+         
         
-        <div class="clock">
-          <h2>Monday, May 16 2021</h2>
-          <h1>00:00:00</h1>
-        </div>
+      </div>
+
+      <div class="clock">
+        <h2>Monday, May 16 2021</h2>
+        <h1>00:00:00</h1>
       </div>
       </div>
         
   <div class="modal" id="modal">
-    <div class="modal-header">
-      <div class="title">Who are you?</div>
+    <div class="modal-header">  
+      <div class="title">Identify BOT ID</div>
       <form class="js-form form" data-user-form>
-        <input type="text" class="user" placeholder="What is your name" data-user-input />
+        <input type="text" class="user" placeholder="Identify Yourself!" data-user-input />
       </form>
       <button data-close-button class="close-button">&times;</button>
     </div>
@@ -34,13 +38,17 @@
   </div>
   <div id="overlay"></div>
       <!-- To Do List -->
-    <div class="focus"></div>
-    <h1 class="h1focus">Note down your main focus today.</h1>
-    <form action="">
-    <input data-focus-input type="text" placeholder="write it down here">
+    <div class="focusContainer">
+    <h1 class="focus" data-focus-title>Power On! Robot.</h1>
+    <h1 class="focus2" data-focus-display></h1>
+    <form action="" data-focus-form>
+    <input class="focusInput" data-focus-input type="text" placeholder="What's the main agenda?">
+    <button data-focus-more class="hide">...</button>
+  </div>
   </form>
+
     <div class="all-tasks">
-      <h2 class="task-list-title">My lists</h2>
+      <h2 class="task-list-title">The listed</h2>
       <ul class="task-list" data-lists></ul>
 
       <form action="" data-new-list-form>
@@ -57,7 +65,7 @@
 
     <div class="todo-list" data-list-display-container>
       <div class="todo-header">
-        <h2 class="list-title" data-list-title>YouTube</h2>
+        <h2 class="list-title" data-list-title>Inevitable completion</h2>
         <p class="task-count" data-list-count>3 tasks remaining</p>
       </div>
 
@@ -95,14 +103,17 @@
       </div>
     </template>
         <!-- quotes -->
-        <h1>Quote Generator</h1>
-        <div id="container">
-        <button id="quoteButton">Press for a new Quote!</button>
-        <div id="output">Press the button to generate a Quote</div>
-        </div>
+        <div class="quote-container">       
+        <button id="quoteButton">Press for a new Quote</button>
+        <form action="" data-quote-form>
         <input type="text" class="quote" placeholder="Add a new quote" data-user-quote />
-        <button id= "quoteSubmit">Add quote</button>
+        </form>
+        </div>
+        <div class = "footer">
+        <div id="output">Do. Or do not. There is no try. - Yoda</div>
+        </div>
     </main> 
+    
     <!-- Script -->
     <!-- <script>window.localStorage.clear();</script> -->
     <script src="clock.js"></script>

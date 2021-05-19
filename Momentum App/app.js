@@ -12,10 +12,31 @@ const newQuote = document.querySelector('[data-user-quote]')
 const openModalButtons = document.querySelectorAll('[data-modal-target]')
 const closeModalButtons = document.querySelectorAll('[data-close-button]')
 const overlay = document.getElementById('overlay')
+const focusInput= document.querySelector('[data-focus-input]')
+const focusForm= document.querySelector('[data-focus-form]')
+let focusDisplay = document.querySelector('[data-focus-display')
+const quoteForm = document.querySelector('[data-quote-form]')
+let focusMoreBtn= document.querySelector('[data-focus-more]')
+let dataFocusTitle= document.querySelector('[data-focus-title]')
 
 if(displayName){
   userName.innerHTML=displayName;
 }
+focusForm.addEventListener('submit', e=>{
+  e.preventDefault()
+  focusDisplay.textContent = focusInput.value;
+  focusInput.value='';
+  focusInput.classList.toggle('hide')
+  focusMoreBtn.classList.toggle('reveal')
+  dataFocusTitle.textContent="Today's WIP";
+
+})
+focusMoreBtn.addEventListener('click', e=>{
+
+  focusForm.classList.toggle('hide');
+  focusMoreBtn.classList.toggle('hide');
+})
+
 //Display User
 
   
@@ -71,14 +92,15 @@ var quotes = [
   "Simplicity is the ultimate sophistication. - Leonardo Da Vinci",
   "The Pessimist Sees Difficulty In Every Opportunity. The Optimist Sees Opportunity In Every Difficulty. – Winston Churchill",
   "Don’t Let Yesterday Take Up Too Much Of Today. – Will Rogers",
-  "You Learn More From Failure Than From Success. Don’t Let It Stop You. Failure Builds Character.” – Unknown",
-  "It’s Not Whether You Get Knocked Down, It’s Whether You Get Up.” – Inspirational Quote By Vince Lombardi",
+  "You Learn More From Failure Than From Success. Don’t Let It Stop You. Failure Builds Character. – Unknown",
+  "It’s Not Whether You Get Knocked Down, It’s Whether You Get Up. – Inspirational Quote By Vince Lombardi",
   "If You Are Working On Something That You Really Care About, You Don’t Have To Be Pushed. The Vision Pulls You.” – Steve Jobs",
-  "People Who Are Crazy Enough To Think They Can Change The World, Are The Ones Who Do.” – Rob Siltanen",
-  "Failure Will Never Overtake Me If My Determination To Succeed Is Strong Enough.” – Og Mandino",
-  "Entrepreneurs Are Great At Dealing With Uncertainty And Also Very Good At Minimizing Risk. That’s The Classic Entrepreneur.” – Mohnish Pabrai",
-  "We May Encounter Many Defeats But We Must Not Be Defeated.” – Maya Angelou",
-  "Knowing Is Not Enough; We Must Apply. Wishing Is Not Enough; We Must Do. – Johann Wolfgang Von Goethe"
+  "People Who Are Crazy Enough To Think They Can Change The World, Are The Ones Who Do. – Rob Siltanen",
+  "Failure Will Never Overtake Me If My Determination To Succeed Is Strong Enough. – Og Mandino",
+  "Entrepreneurs Are Great At Dealing With Uncertainty And Also Very Good At Minimizing Risk. That’s The Classic Entrepreneur. – Mohnish Pabrai",
+  "We May Encounter Many Defeats But We Must Not Be Defeated. – Maya Angelou",
+  "Knowing Is Not Enough; We Must Apply. Wishing Is Not Enough; We Must Do. – Johann Wolfgang Von Goethe",
+  "Do. Or do not. There is no try. - Yoda"
 ]
 
 btn.addEventListener('click', function(){
@@ -87,12 +109,11 @@ btn.addEventListener('click', function(){
 })
 
 
-btnQuote.addEventListener('click', function(){
-  if(newQuote.value.length>5){
+quoteForm.addEventListener('submit', e => { 
+  e.preventDefault()
     quotes.push(newQuote.value);
     output.innerHTML= quotes[quotes.length-1];
     newQuote.value= "";
   }
-  this.preventDefault;
-})
+)
 
