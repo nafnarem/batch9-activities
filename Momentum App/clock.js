@@ -29,7 +29,7 @@ function getTime(){
         minutes = "0"+date.getMinutes();
     }
     if (seconds < 10) {
-        seconds = "0"+date.getSeconds();
+       seconds = "0"+date.getSeconds();
     }
     if (hours >12){
         hours = hours % 12;

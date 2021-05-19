@@ -20,6 +20,7 @@
       </div>
 
       <div class="clock">
+        
         <h2>Monday, May 16 2021</h2>
         <h1>00:00:00</h1>
       </div>
@@ -28,10 +29,13 @@
   <div class="modal" id="modal">
     <div class="modal-header">  
       <div class="title">Identify BOT ID</div>
-      <form class="js-form form" data-user-form>
-        <input type="text" class="user" placeholder="Identify Yourself!" data-user-input />
+      <div><form class="js-form form" data-user-form>
+      <input type="text" class="user" placeholder="Identify Yourself!" data-user-input />
       </form>
+      </div>
+      <div>
       <button data-close-button class="close-button">&times;</button>
+    </div>
     </div>
     <div class="modal-body">
     </div>
@@ -104,7 +108,7 @@
     </template>
         <!-- quotes -->
         <div class="quote-container">       
-        <button id="quoteButton">Press for a new Quote</button>
+        <button id="quoteButton">Press to change today's Quote</button>
         <form action="" data-quote-form>
         <input type="text" class="quote" placeholder="Add a new quote" data-user-quote />
         </form>
@@ -112,6 +116,12 @@
         <div class = "footer">
         <div id="output">Do. Or do not. There is no try. - Yoda</div>
         </div>
+        <div class="theme">
+          <div class="changeMode" data-night-mode>
+            <div id="toggle"></div> 
+          </div>
+        </div>
+
     </main> 
     
     <!-- Script -->

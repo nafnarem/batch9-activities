@@ -7,7 +7,6 @@ const userInput = document.querySelector('[data-user-input]');
 let userName = document.querySelector('[data-name]');
 let btn = document.getElementById('quoteButton');
 let output = document.getElementById('output');
-let btnQuote= document.getElementById('quoteSubmit')
 const newQuote = document.querySelector('[data-user-quote]')
 const openModalButtons = document.querySelectorAll('[data-modal-target]')
 const closeModalButtons = document.querySelectorAll('[data-close-button]')
@@ -18,6 +17,7 @@ let focusDisplay = document.querySelector('[data-focus-display')
 const quoteForm = document.querySelector('[data-quote-form]')
 let focusMoreBtn= document.querySelector('[data-focus-more]')
 let dataFocusTitle= document.querySelector('[data-focus-title]')
+let nightMode = document.querySelector('[data-night-mode]')
 
 if(displayName){
   userName.innerHTML=displayName;
@@ -25,7 +25,6 @@ if(displayName){
 focusForm.addEventListener('submit', e=>{
   e.preventDefault()
   focusDisplay.textContent = focusInput.value;
-  focusInput.value='';
   focusInput.classList.toggle('hide')
   focusMoreBtn.classList.toggle('reveal')
   dataFocusTitle.textContent="Today's WIP";
@@ -82,7 +81,8 @@ function closeModal(modal) {
   modal.classList.remove('active')
   overlay.classList.remove('active')
 }
-
+newQuote.style.width = btn.style.width;
+newQuote.style.padding = "17px";
 //quotes
 var quotes = [
   "Stay Hungry. Stay Foolish. - Steve Jobs",
@@ -117,3 +117,17 @@ quoteForm.addEventListener('submit', e => {
   }
 )
 
+nightMode.addEventListener('click', e=>{
+  var element = document.body;
+  let toggle = document.getElementById("toggle").getAttribute("style");
+  
+  if (toggle == "transform: translateX(0px);" ) {
+    document.getElementById("toggle").style.transform = "translateX(60px)";
+ }
+
+ else {
+    document.getElementById("toggle").style.transform = "translateX(0px)";
+ }
+  element.classList.toggle("dark-mode");
+}
+) 
