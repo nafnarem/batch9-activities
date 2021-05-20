@@ -1,6 +1,6 @@
 const clockContainer = document.querySelector(".clock")
 const clockTitle = clockContainer.querySelector("h1")
-const calendarTitle = clockContainer.querySelector("h2")
+// const calendarTitle = clockContainer.querySelector("h2")
 const ampmnow = document.querySelector('[data-ampm]')
 
 function getTime(){
@@ -35,8 +35,8 @@ function getTime(){
         hours = hours % 12;
         hours = hours ? hours : 12;
     }
-    calendarTitle.innerText = now + " "+  (month+1) + "/" +day +"/"+ year;
-    clockTitle.innerText = hours + ':' +minutes+ ':' + seconds + ' '+ ampm;
+    // calendarTitle.innerText = now + " "+  (month+1) + "/" +day +"/"+ year;
+    clockTitle.innerText = hours + ':' +minutes+  ' '+ ampm;
     if (hours >0){
         ampmnow.innerText = "Good morning";
     }

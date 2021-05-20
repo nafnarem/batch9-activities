@@ -18,7 +18,11 @@ const quoteForm = document.querySelector('[data-quote-form]')
 let focusMoreBtn= document.querySelector('[data-focus-more]')
 let dataFocusTitle= document.querySelector('[data-focus-title]')
 let nightMode = document.querySelector('[data-night-mode]')
-
+let hamburger1 = document.querySelector('[data-burger1]')
+let hamburger2 = document.querySelector('[data-burger2]')
+let hamburger3 = document.querySelector('[data-burger3]')
+const displayList= document.querySelector('[data-listDisplay]')
+const displayTask= document.querySelector('[data-list-display-container]')
 if(displayName){
   userName.innerHTML=displayName;
 }
@@ -27,7 +31,7 @@ focusForm.addEventListener('submit', e=>{
   focusDisplay.textContent = focusInput.value;
   focusInput.classList.toggle('hide')
   focusMoreBtn.classList.toggle('reveal')
-  dataFocusTitle.textContent="Today's WIP";
+  dataFocusTitle.textContent="Today's Focus";
 
 })
 focusMoreBtn.addEventListener('click', e=>{
@@ -131,3 +135,25 @@ nightMode.addEventListener('click', e=>{
   element.classList.toggle("dark-mode");
 }
 ) 
+
+hamburger1.addEventListener('click', e=>{
+  hamburger1.classList.toggle('change');
+  displayList.classList.toggle('hide');
+
+}
+
+)
+
+
+hamburger2.addEventListener('click', e=>{
+  hamburger2.classList.toggle('change');
+  displayTask.classList.toggle('hide');
+}
+
+)
+
+hamburger3.addEventListener('click', e=>{
+  hamburger3.classList.toggle('change');
+}
+
+)

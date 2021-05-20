@@ -1,6 +1,6 @@
 body {
     color:black;
-    text-align: center;
+    text-align: center; 
 }
 main{
   background-image:url(/bg.png);
@@ -96,22 +96,31 @@ main{
 
   .grid{
     display:grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(7, 1fr);
     grid-template-areas:
-    'header header header header header header '
-    'header header header header header header'
-    'list task . . . . '
-    'list task . . . time '
-    '. task . . . time '
-    '. focus . . . .'
-    'quote focus . . . .'
-    'footer footer . . theme .';
+    'list . . . . . .'
+    'task time time time . . hamburger'
+    'task time time time . . .'
+    'task time time time . . .'
+    'quote focus focus focus . . .'
+    '. footer footer footer footer footer theme';
     grid-gap: 10px;
     padding: 10px;
     text-align: center;
+    place-items: center;
 }
-
+.hamburger-container{
+  grid-area: hamburger;
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  
+}
 .footer{
   grid-area: footer;
+  place-self: end;
+  
 }
 .all-tasks{
   grid-area: list;
@@ -127,7 +136,11 @@ main{
 }
 .quote-container{
   grid-area: quote;
-  margin-top:10px
+  margin-top:10px;
+}
+.hamburger-description {
+  font-size: 28px;
+  text-align: left;
 }
 .todo-list{
   grid-area: task;
@@ -140,10 +153,13 @@ main{
   font-size:40px;
 }
 .hide{
-  visibility:hidden;
+  visibility: hidden;
 }
 .clock{
   grid-area: time;
+}
+.clock h1{
+  margin-top: -5px;
 }
 .reveal{
   visibility:visible;
@@ -205,8 +221,6 @@ li{
     display:flex;
     flex-direction: column;
   }
-  .header{
-  }
   .modal-body{
     display: none;
   }
@@ -220,4 +234,34 @@ li{
   .modal-header{
     display:flex;
     flex-direction: column;
+}
+}
+.hamburger {
+  display:inline;
+  cursor: pointer;
+}
+
+.bar1, .bar2, .bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: #333;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+/* Rotate first bar */
+.change .bar1 {
+  -webkit-transform: rotate(-45deg) translate(-9px, 6px) ;
+  transform: rotate(-45deg) translate(-9px, 6px) ;
+}
+
+/* Fade out the second bar */
+.change .bar2 {
+  opacity: 0;
+}
+
+/* Rotate last bar */
+.change .bar3 {
+  -webkit-transform: rotate(45deg) translate(-8px, -8px) ;
+  transform: rotate(45deg) translate(-8px, -8px) ;
 }
