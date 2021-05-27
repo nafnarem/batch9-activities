@@ -23,6 +23,7 @@ let hamburger2 = document.querySelector('[data-burger2]')
 let hamburger3 = document.querySelector('[data-burger3]')
 const displayList= document.querySelector('[data-listDisplay]')
 const displayTask= document.querySelector('[data-list-display-container]')
+const quoteContainer = document.querySelector('[data-quoteContainer]')
 if(displayName){
   userName.innerHTML=displayName;
 }
@@ -154,6 +155,7 @@ hamburger2.addEventListener('click', e=>{
 
 hamburger3.addEventListener('click', e=>{
   hamburger3.classList.toggle('change');
+  quoteContainer.classList.toggle('hide');
 }
 
 )

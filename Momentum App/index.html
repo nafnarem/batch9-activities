@@ -6,27 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Momentum App</title>
     <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
 </head>
 <body>
+  <div class="navbar hide"></div>
     <main class="grid">
-      <div class="header">
-        <!-- Clock -->
-      </div>
-         
-
-      
-        
       <div class="clock">
         <!--         
                 <h2>Monday, May 16 2021</h2> -->
-                <div class="greetings"><span data-ampm>Hello there </span>, <span class="name" data-name> John</span><span>!<br> It's time to plug in.</span>
-                  <button data-modal-target="#modal">...</button>
-                </div>
-                <h1>00:00:00</h1>
+                
+      <div>
+        <h1>00:00:00</h1>
+      </div>
+      <div class="greetings"><span data-ampm>Hello there </span>, <span class="name" data-name> John</span><span>!<br> It's time to plug in.</span>
+        <button data-modal-target="#modal">...</button>
+        </div>
               
       </div>
 
-      </div>
         
   <div class="modal" id="modal">
     <div class="modal-header">  
@@ -45,13 +42,15 @@
   <div id="overlay"></div>
       <!-- To Do List -->
     <div class="focusContainer">
-    <h1 class="focus" data-focus-title>Power On! Robot.</h1>
+      <div>
+    <h1 class="focus" data-focus-title>Power On! Robot.</h1></div>
     <h1 class="focus2" data-focus-display></h1>
     <form action="" data-focus-form>
-    <input class="focusInput" data-focus-input type="text" placeholder="What's the main agenda?">
     <button data-focus-more class="hide">...</button>
-  </div>
+    <input class="focusInput" data-focus-input type="text" placeholder="What's the main agenda?">
+    
   </form>
+  </div>
 
     <div class="all-tasks hide" data-listDisplay>
       <h2 class="task-list-title">The listed</h2>
@@ -62,7 +61,7 @@
           type="text"
           class="new list"
           data-new-list-input
-          placeholder="new list name"
+          placeholder="New List"
           aria-label="new list name"
         />
         <button class="btn create" aria-label="create new list">+</button>
@@ -84,7 +83,7 @@
                   type="text"
                   data-new-task-input
                   class="new task"
-                  placeholder="new task name"
+                  placeholder="New thing-to-do"
                   aria-label="new task name"
                 />
                 <button class="btn create" aria-label="create new task">+</button>
@@ -98,8 +97,6 @@
       </div>
     </div>
 
-   
-    </div>
     <template id="task-template">
       <div class="task">
         <input type="checkbox" />
@@ -109,7 +106,7 @@
       </div>
     </template>
         <!-- quotes -->
-        <div class="quote-container">       
+        <div class="quote-container hide" data-quoteContainer >        
         <button id="quoteButton">Press to change today's Quote</button>
         <form action="" data-quote-form>
         <input type="text" class="quote" placeholder="Add a new quote" data-user-quote />
@@ -143,7 +140,7 @@
         </div>
         <div class="hamburger-description">
           <div>Lists</div>
-          <div>Tasks</div>
+          <div>To-do</div>
           <div>Quotes</div> 
         </div>
       </div>

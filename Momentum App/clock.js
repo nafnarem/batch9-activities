@@ -40,14 +40,14 @@ function getTime(){
     if (hours >0){
         ampmnow.innerText = "Good morning";
     }
-    if (hours>12){
+    else if (hours>12){
         ampmnow.innerText = "Good noon";
     }
-    if (hours>13){
+    else if (hours>13){
         ampmnow.innerText = "Good afternoon";
     }
 
-    if (hours>18){
+    else if (hours>17){
         ampmnow.innerText = "Good evening";
     }
     
