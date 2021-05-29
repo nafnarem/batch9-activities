@@ -1,11 +1,13 @@
 * {
     padding: 0;
     margin: 0;
-    font-family: 'Itim', cursive;
 }
 
 .background {
-    background-color: #12181B;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(29, 82, 79);
     height: 100vh;
     padding-top: 1px;
 }
@@ -29,19 +31,16 @@
     display: none;
 }
 
-.container {
-    margin: 0 auto;
+.container {  
     display: grid;
-    grid-template-columns: 33% 33% 33%;
-    grid-template-rows: 33% 33% 33%;
-    max-width: 300px;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px); 
+    place-content: center; 
 
 }
 
 .tile {
-    border: 1px solid white;
-    min-width: 100px;
-    min-height: 100px;
+    border: 1px solid yellowgreen;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -58,7 +57,6 @@
 .playerO {
     color: #498AFB;
     background-image: url(/O.png);
-    
     background-size: contain;
 }
 
@@ -80,10 +78,13 @@
     cursor: pointer;
 }
 
-.restart {
-    background-color: #498AFB;
-}
 
 #reset {
-    background-color: #FF3860;
+    background-color:red;
+}
+#prev{
+    background-color:blue;
+}
+#next{
+    background-color:green;
 }

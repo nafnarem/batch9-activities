@@ -1,25 +1,18 @@
-window.addEventListener('DOMContentLoaded', () => {
+
   const tiles = Array.from(document.querySelectorAll('.tile'));
   const playerDisplay = document.querySelector('.display-player');
   const resetButton = document.querySelector('#reset');
   const announcer = document.querySelector('.announcer');
-
+  const historyBtn = document.querySelector('#prev');
+  const historyBtn2 = document.querySelector('#next');
   let board = ['', '', '', '', '', '', '', '', ''];
+  let boardClone = [];
   let currentPlayer = 'X';
   let isGameActive = true;
-
+  let counter = -1;
   const PLAYERX_WON = 'PLAYERX_WON';
   const PLAYERO_WON = 'PLAYERO_WON';
   const TIE = 'TIE';
-
-
-  /*
-      Indexes within the board
-      [0] [1] [2]
-      [3] [4] [5]
-      [6] [7] [8]
-  */
-
   const winningConditions = [
       [0, 1, 2],
       [3, 4, 5],
@@ -30,6 +23,7 @@ window.addEventListener('DOMContentLoaded', () => {
       [0, 4, 8],
       [2, 4, 6]
   ];
+
 
   function handleResultValidation() {
       let roundWon = false;
@@ -50,6 +44,11 @@ window.addEventListener('DOMContentLoaded', () => {
   if (roundWon) {
           announce(currentPlayer === 'X' ? PLAYERX_WON : PLAYERO_WON);
           isGameActive = false;
+          tiles.forEach( (tile, index) => {
+            tile.removeEventListener('click', () => userAction(tile, index));
+          // 
+      
+        });
           return;
       }
 
@@ -60,15 +59,17 @@ window.addEventListener('DOMContentLoaded', () => {
   const announce = (type) => {
       switch(type){
           case PLAYERO_WON:
-              announcer.innerHTML = 'Player O Won';
+              announcer.innerHTML = 'O Wins!';
               break;
           case PLAYERX_WON:
-              announcer.innerHTML = 'Player X Won';
+              announcer.innerHTML = 'X Wins!';
               break;
           case TIE:
               announcer.innerText = 'Tie';
       }
       announcer.classList.remove('hide');
+      historyBtn.classList.remove('hide');
+      historyBtn2.classList.remove('hide');
   };
 
   const isValidAction = (tile) => {
@@ -98,13 +99,29 @@ window.addEventListener('DOMContentLoaded', () => {
           updateBoard(index);
           handleResultValidation();
           changePlayer();
+          boardHistory();
+          
+
       }
   }
+
+  const boardHistory = () => {
+    boardClone.push(board.slice());
+    counter += 1;
+}
   
   const resetBoard = () => {
       board = ['', '', '', '', '', '', '', '', ''];
+      boardClone = [];
       isGameActive = true;
       announcer.classList.add('hide');
+      counter = -1;
+
+  tiles.forEach( (tile, index) => {
+    tile.addEventListener('click', () => userAction(tile, index));
+
+  });
+      
 
       if (currentPlayer === 'O') {
           changePlayer();
@@ -118,8 +135,48 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
   tiles.forEach( (tile, index) => {
-      tile.addEventListener('click', () => userAction(tile, index));
+    tile.addEventListener('click', () => userAction(tile, index));
+
   });
 
   resetButton.addEventListener('click', resetBoard);
-});
+
+  const prevHistoryClone = () =>{
+      if (counter>0){
+      counter -=1;
+      changePlayer();
+      tiles.forEach((tile, index) => {
+          if (boardClone[counter][index] === 'O'){
+            tile.classList.add('playerO');
+          }
+          else if(boardClone[counter][index]=== 'X'){
+            tile.classList.add('playerX');
+          }
+          else if(boardClone[counter][index] === ''){
+            tile.classList.remove('playerX');
+            tile.classList.remove('playerO');   
+          }
+        
+      })  
+  }}
+
+  const nextHistoryClone = () =>{
+    if(counter<boardClone.length-1){
+    counter +=1;
+    changePlayer();
+    tiles.forEach((tile, index) => {
+        if (boardClone[counter][index] === 'O'){
+          tile.classList.add('playerO');
+        }
+        else if(boardClone[counter][index]=== 'X'){
+          tile.classList.add('playerX');
+        }
+        else if(boardClone[counter][index] === ''){
+          tile.classList.remove('playerX');
+          tile.classList.remove('playerO');   
+        }
+      
+    })  
+}}
+  historyBtn.addEventListener('click', prevHistoryClone);
+  historyBtn2.addEventListener('click', nextHistoryClone);
