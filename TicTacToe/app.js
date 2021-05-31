@@ -116,6 +116,8 @@
       isGameActive = true;
       announcer.classList.add('hide');
       counter = -1;
+      historyBtn.classList.add('hide');
+      historyBtn2.classList.add('hide');
 
   tiles.forEach( (tile, index) => {
     tile.addEventListener('click', () => userAction(tile, index));
