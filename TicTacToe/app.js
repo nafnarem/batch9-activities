@@ -100,6 +100,8 @@
           handleResultValidation();
           changePlayer();
           boardHistory();
+          console.log(board);
+          console.log(boardClone);
           
 
       }
