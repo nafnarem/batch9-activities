@@ -46,7 +46,6 @@
           isGameActive = false;
           tiles.forEach( (tile, index) => {
             tile.removeEventListener('click', () => userAction(tile, index));
-          // 
       
         });
           return;
@@ -73,10 +72,9 @@
   };
 
   const isValidAction = (tile) => {
-      // if (tile.innerText === 'X' || tile.innerText === 'O'){
       if (tile.classList.contains('playerX') || tile.classList.contains('playerO')){
           return false;
-      }
+      } 
 
       return true;
   };
@@ -89,12 +87,10 @@
       playerDisplay.classList.remove(`player${currentPlayer}`);
       currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
       playerDisplay.innerText = currentPlayer;
-      // playerDisplay.classList.add(`player${currentPlayer}`);
   }
 
   const userAction = (tile, index) => {
       if(isValidAction(tile) && isGameActive) {
-          // tile.innerText = currentPlayer;
           tile.classList.add(`player${currentPlayer}`);
           updateBoard(index);
           handleResultValidation();
@@ -169,17 +165,22 @@
     counter +=1;
     changePlayer();
     tiles.forEach((tile, index) => {
-        if (boardClone[counter][index] === 'O'){
-          tile.classList.add('playerO');
-        }
-        else if(boardClone[counter][index]=== 'X'){
-          tile.classList.add('playerX');
-        }
-        else if(boardClone[counter][index] === ''){
-          tile.classList.remove('playerX');
-          tile.classList.remove('playerO');   
-        }
+    //     if (boardClone[counter][index] === 'O'){
+    //       tile.classList.add('playerO');
+    //     }
+    //     else if(boardClone[counter][index]=== 'X'){
+    //       tile.classList.add('playerX');
+    //     }
+    //     else if(boardClone[counter][index] === ''){
+    //       tile.classList.remove('playerX');
+    //       tile.classList.remove('playerO');   
+    //     }
       
+    if(boardClone[counter][index] === ''){
+      tile.classList.remove('playerX');
+      tile.classList.remove('playerO');
+    }
+    tile.classList.add(`player${boardClone[counter][index]}`);
     })  
 }}
   historyBtn.addEventListener('click', prevHistoryClone);
